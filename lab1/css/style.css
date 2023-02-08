@@ -1,6 +1,6 @@
 body {
     background-color: #f3e1d1;
-    margin: 0px;
+    margin: 0;
     height: 100%;
 }
 
@@ -9,13 +9,14 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .zigzag {
+    background-color: #f3e1d1;
     margin: 0 auto;
-    position: relative;
-    left: 20%;
+    position: fixed;
+    right: 600px;
     height: 100%;
     width: 40px;
     z-index: 1;
@@ -44,8 +45,23 @@ body {
     width: 40px;
     height: 100%;
     left: calc(50% - 15px);
-    background: linear-gradient(-45deg, #f3e1d1 25px, transparent 0) 0 8px, linear-gradient(225deg, #f3e1d1 25px, transparent 0) 0 8px;
+    background: linear-gradient(-45deg, #ff6329 25px, transparent 0) 0 8px, linear-gradient(225deg, #ff6329 25px, transparent 0) 0 8px;
     background-position: top left;
     background-repeat: repeat-y;
     background-size: 40px 50px;
+}
+
+.first-half {
+    background-color: #f3e1d1;
+    height: 100%;
+    width: 800px;
+    position: fixed;
+}
+
+.second-half {
+    background-color: #ff6329;
+    height: 100%;
+    width: 600px;
+    position: fixed;
+    right: 0;
 }
