@@ -4,18 +4,16 @@ body {
     height: 100%;
 }
 
-.container {
-    position: fixed;
-    height: 100%;
+.first-page {
+    position: relative;
+    height: 100vh;
     width: 100%;
-    display: flex;
-    flex-direction: row;
 }
 
 .zigzag {
     background-color: #f3e1d1;
     margin: 0 auto;
-    position: fixed;
+    position: absolute;
     right: 600px;
     height: 100%;
     width: 40px;
@@ -55,13 +53,228 @@ body {
     background-color: #f3e1d1;
     height: 100%;
     width: 800px;
-    position: fixed;
+    position: absolute;
 }
 
 .second-half {
     background-color: #ff6329;
     height: 100%;
     width: 600px;
+    position: absolute;
+    right: 0;
+}
+
+#toolbar {
+    width: 400px;
+    margin: 40px 0px 0px 120px;
+}
+
+#background {
     position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    opacity: .4;
+}
+
+#logo {
+    margin: 0px 10px 0px 0px;
+    right: 0;
+}
+
+#navbar {
+    margin: 0px 0px 25px 10px;
+    right: 0;
+}
+
+#strawberry_1 {
+    position: absolute;
+    top: 0;
+    margin: 0px 0px 0px 850px;
+}
+
+#shape_1 {
+    position: absolute;
+    top: 0;
+    margin: 200px 0px 0px 0px;
+}
+
+#strawberry_2 {
+    position: absolute;
+    top: 0;
+    margin: 650px 20px 0px 0px;
+}
+
+#search-and-shop {
+    width: 150px;
+    margin: 60px 0px 0px 350px;
+}
+
+#search_icon {
+    margin: 0px 15px 0px 0px;
+}
+
+#big-text {
+    width: 800px;
+    font-size: 150px;
+    font-family: 'Open Sans', sans-serif;
+    color: #ff6329;
+    margin: 100px 0px 0px 200px;
+}
+
+#small-text {
+    width: 700px;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: black;
+    margin: 15px 0px 0px 240px;
+}
+
+#phone {
+    position: absolute;
+    margin: 150px 0px 0px 1180px;
+    z-index: 9;
+}
+
+#shop-and-learn {
+    margin: 30px 0px 0px 400px;
+}
+
+.button {
+    display: inline-block;
+    margin: 0px 20px 0px 0px;
+    padding: 10px 32px;
+    border: 4px solid black;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+#button-1 {
+    background-color: #ff6329;
+    color: #f3e1d1;
+}
+
+#button-2 {
+    background-color: transparent;
+    color: #ff6329;
+}
+
+#down_arrow {
+    margin: 80px 0px 0px 565px;
+}
+
+#pear_1 {
+    margin: 0px 0px 0px 900px;
+}
+
+#vertical-text {
+    color: #f3e1d1;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    margin: 115px 0px 200px 300px;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+#shape_2 {
+    position: absolute;
+    bottom: 50px;
+    right: 5px;
+    margin: 0px 0px 60px 200px;
+}
+
+hr.standard {
+    width: 100%;
+    position: absolute;
+    border: 3px solid black;
+    border-right : 0;
+    border-left: 0;
+    margin: 0;
+}
+
+/*Page Nr.2*/
+
+.second-page {
+    width: 100%;
+    height: 700px;
+    position: relative;
+    margin: 2px 0px 0px 0px;
+    background-color: #ff6329;
+}
+
+#shape_3 {
+    position: absolute;
+    left: 0;
+    top: 60px;
+}
+
+#banana_1 {
+    position: absolute;
+    left: 50px;
+    bottom: 80px;
+}
+
+.text-container {
+    width: 1000px;
+    height: 500px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#small-text-2 {
+    width: 200px;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+#big-text-2 {
+    width: 1000px;
+    font-size: 130px;
+    font-family: 'Open Sans', sans-serif;
+    color: #f3e1d1;
+    margin: 30px 0px 0px 0px;
+    text-align: center;
+}
+
+#small-text-3 {
+    width: 600px;
+    font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: #f3e1d1;
+    margin: 30px 0px 0px 0px;
+    text-align: center;
+}
+
+#button-3 {
+    color: #ff6329;
+    background-color: #f3e1d1;
+    margin: 30px 0px 0px 0px;
+}
+
+#pear_2 {
+    position: absolute;
+    right: 50px;
+    top: 90px;
+}
+
+#shape_4 {
+    position: absolute;
+    bottom: 70px;
     right: 0;
 }

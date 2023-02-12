@@ -14,7 +14,7 @@ Cheers,
 Your lovely boss. <3
 ```
 
-The next day the designer sends you the design and you start working on the landing page.
+The next day the designer sends you the design, and you start working on the landing page.
 
 ## Task
 
@@ -47,4 +47,3 @@ You can get `+2` bonus points for an adapted design for mobile devices.
 - The result will be checked in Firefox browser - make sure it looks OK there.
 - If you want to create a responsive design, start with the desktop version, then get rid of unnecessary elements for the mobile version.
 - For layout, you can use CSS Grid and/or flexboxes.
-
