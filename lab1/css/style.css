@@ -225,6 +225,30 @@ body {
     right: 24%;
 }
 
+@media screen and (max-width: 1635px) {
+    #phone {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1700px) {
+    #strawberry_1 {
+        display: none;
+    }
+
+    #shape_1 {
+        display: none;
+    }
+
+    #strawberry_2 {
+        display: none;
+    }
+
+    #pear_1 {
+        display: none;
+    }
+}
+
 /*Page Nr.2*/
 
 .second-page {
@@ -304,30 +328,6 @@ body {
     position: absolute;
     bottom: 70px;
     right: 0;
-}
-
-@media screen and (max-width: 1635px) {
-    #phone {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 1700px) {
-    #strawberry_1 {
-        display: none;
-    }
-
-    #shape_1 {
-        display: none;
-    }
-
-    #strawberry_2 {
-        display: none;
-    }
-
-    #pear_1 {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 1600px) {
