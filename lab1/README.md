@@ -20,7 +20,7 @@ The next day the designer sends you the design, and you start working on the lan
 
 Your task for this lab is:
 
-1. Download the design as PSD file from [Freepik](https://www.freepik.com/free-psd/grocery-delivery-service-web-template_17734553.htm);
+1. Download the design as PSD file from [Freepik](https://www.freepik.com/free-psd/grocery-delivery-service-web-template_17734553.htm).
 2. Extract images as JPG files using [Aspose](https://products.aspose.app/psd/extract) or similiar tools.
 3. Copy `index.html`, `reset.css` and `style.css` to your repo.
 4. Update `index.html` and `style.css`, so that the page looks similar to the design from PSD file.
