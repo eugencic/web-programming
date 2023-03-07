@@ -6,7 +6,7 @@ from urllib.parse import parse_qs, unquote, urlparse
 from bs4 import BeautifulSoup
 
 
-def access(url):
+def access_link(url):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.settimeout(5)
     
@@ -62,7 +62,7 @@ def access(url):
     print(body)
 
 
-def search(search_term):
+def search_word(search_term):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.settimeout(5)
     
@@ -130,11 +130,11 @@ if __name__ == "__main__":
 
     if arguments == 3 and sys.argv[1] == '-u':
         url = sys.argv[2]
-        access(url)
+        access_link(url)
 
     if arguments == 3 and sys.argv[1] == '-s':
         search_term = sys.argv[2]
-        search(search_term)
+        search_word(search_term)
         
     if arguments == 2 and sys.argv[1] == '-h':
         help()
