@@ -76,7 +76,8 @@ def search(search_term):
         s.close()
         exit()
     
-    request = f'GET /search?q={search_term} HTTP/1.1\r\nHost: www.google.com\r\n\r\n'
+    encoded_search_term = search_term.replace(" ", "+")
+    request = f'GET /search?q={encoded_search_term} HTTP/1.1\r\nHost: www.google.com\r\n\r\n'
     s.sendall(request.encode())  
     
     response = b""
