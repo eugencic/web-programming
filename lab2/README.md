@@ -20,14 +20,14 @@ Nonetheless, you can't remember where you've saved the executable, so you start 
 
 ## Task
 
-1. You have to write a command line program, using [go2web](go2web) executable as a starting point;
+1. You have to write a command line program, using [go2web](go2web) executable as a starting point.
 2. The program should implement at least the following CLI:
   ```
   go2web -u <URL>         # make an HTTP request to the specified URL and print the response
   go2web -s <search-term> # make an HTTP request to search the term using your favorite search engine and print top 10 results
   go2web -h               # show this help
   ```
-3. The responses from request should be human-readable (e.g. no HTML tags in the output)
+3. The responses from request should be human-readable (e.g. no HTML tags in the output).
 
 ## Special conditions
 
