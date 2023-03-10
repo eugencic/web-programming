@@ -41,18 +41,18 @@ Points:
 - executable with `-u` and `-s` options - `+6` points
 
 You can get `+1` extra point:
-- if results/links from search engine can be accessed (using your CLI);
+- if results/links from search engine can be accessed (using your CLI)
 - for implementing HTTP request redirects
 
 You can get `+2` extra points:
-- for implementing an HTTP cache mechanism;
-- for implementing content negotiation e.g. by accepting and handling both JSON and HTML content types.
+- for implementing an HTTP cache mechanism
+- for implementing content negotiation e.g. by accepting and handling both JSON and HTML content types
 
 ## Hints
 
-- Before opting for some language, make sure you have the right tools: CLI parser, HTML/JSON parser, support for TCP sockets;
-- For CLI you can use built-in libraries or even Bash built-in [getopts](https://wiki.bash-hackers.org/howto/getopts_tutorial);
-- Use third-party libraries for parsing HTML and presenting it;
+- Before opting for some language, make sure you have the right tools: CLI parser, HTML/JSON parser, support for TCP sockets.
+- For CLI you can use built-in libraries or even Bash built-in [getopts](https://wiki.bash-hackers.org/howto/getopts_tutorial).
+- Use third-party libraries for parsing HTML and presenting it.
 - While developing, you can launch a local server using `python3 -m http.server` to test & debug the app.
 - For HTTP cache you'll need either an in-memory store or file access.
 - To avoid `if-else`s in content negotiation, use your knowledge of OOP.
