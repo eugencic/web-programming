@@ -20,9 +20,6 @@ window.addEventListener('load', () => {
 	let storageTasks;
 
 	if (localStorage.getItem('tasks') !== null) {
-		console.log("Not empty");
-		console.log(localStorage);
-
 		storageTasks = JSON.parse(localStorage.getItem('tasks'));
 
 		storageTasks.forEach(function (task) {
@@ -66,7 +63,6 @@ window.addEventListener('load', () => {
 			tasks.appendChild(task_el);
 
 			task_check_el.addEventListener('click', (e) => {
-				console.log("clicked");
 				if (task_check_el.innerText.toLowerCase() == "to-do") {
 					task_check_el.innerText = "Done";
 					task_el.style.backgroundColor = "var(--greyDark)";
@@ -190,8 +186,6 @@ window.addEventListener('load', () => {
 		});
 	} else {
 		storageTasks = [];
-		console.log("Empty");
-		console.log(localStorage);
 	}
 
 	if (tasks.children.length === 0) {
@@ -264,7 +258,6 @@ window.addEventListener('load', () => {
 		input.value = '';
 
 		task_check_el.addEventListener('click', (e) => {
-			console.log("clicked");
 			if (task_check_el.innerText.toLowerCase() == "to-do") {
 				task_check_el.innerText = "Done";
 				task_el.style.backgroundColor = "var(--greyDark)";
