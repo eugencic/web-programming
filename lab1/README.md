@@ -14,15 +14,15 @@ Cheers,
 Your lovely boss. <3
 ```
 
-The next day the designer sends you the design, and you start working on the landing page.
+The next day the designer sends you the design and you start working on the landing page.
 
 ## Task
 
 Your task for this lab is:
 
-1. Download the design as PSD file from [Freepik](https://www.freepik.com/free-psd/grocery-delivery-service-web-template_17734553.htm).
+1. Download the design as PSD file from [Freepik](https://www.freepik.com/free-psd/grocery-delivery-service-web-template_17734553.htm);
 2. Extract images as JPG files using [Aspose](https://products.aspose.app/psd/extract) or similiar tools.
-3. Copy `index.html`, `reset.css` and `style.css` to your repo.
+3. Copy `index.html`, `reset.css` and `style.css` to your repo;
 4. Update `index.html` and `style.css`, so that the page looks similar to the design from PSD file.
 
 ## Special conditions
@@ -47,3 +47,4 @@ You can get `+2` bonus points for an adapted design for mobile devices.
 - The result will be checked in Firefox browser - make sure it looks OK there.
 - If you want to create a responsive design, start with the desktop version, then get rid of unnecessary elements for the mobile version.
 - For layout, you can use CSS Grid and/or flexboxes.
+

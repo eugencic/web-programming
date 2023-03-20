@@ -21,6 +21,7 @@ window.addEventListener('load', () => {
 
 	if (localStorage.getItem('tasks') !== null) {
 		storageTasks = JSON.parse(localStorage.getItem('tasks'));
+		console.log(localStorage)
 
 		storageTasks.forEach(function (task) {
 			const task_el = document.createElement('div');
