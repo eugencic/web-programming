@@ -1,5 +1,10 @@
 # Lab 5 - Backend development
 
+## Important
+
+Before using the bot, create a tunnel using Ngrok.
+Set a webhook by accessing the link https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?url=<NGROK_URL>
+
 ## Story
 
 Imagine, you're a developer at Newsroom SRL, a local company which runs a site for business news. On a regular meeting you propose to launch an Telegram bot along with the web site. Your idea looks nice, but the CTO has requested a proof-of-concept application before main development starts.
