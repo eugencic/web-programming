@@ -1,7 +1,7 @@
 {
-  "update_id": 325636205,
+  "update_id": 325636286,
   "message": {
-    "message_id": 6,
+    "message_id": 146,
     "from": {
       "id": 441513607,
       "is_bot": false,
@@ -15,12 +15,12 @@
       "username": "eugencic",
       "type": "private"
     },
-    "date": 1684340388,
-    "text": "/start",
+    "date": 1684359344,
+    "text": "/latest_news tech",
     "entities": [
       {
         "offset": 0,
-        "length": 6,
+        "length": 12,
         "type": "bot_command"
       }
     ]
