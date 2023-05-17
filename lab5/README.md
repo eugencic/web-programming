@@ -2,7 +2,7 @@
 
 ## Important
 
-Before using the bot, create a tunnel using Ngrok.
+Before using the bot, create a tunnel using Ngrok.__
 Set a webhook by accessing the link https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?url=<NGROK_URL>
 
 ## Story
