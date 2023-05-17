@@ -1,16 +1,30 @@
 import json
 
 import requests
+from flask import jsonify
 from flask import Flask
+from flask import request
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
-    return '<h1>Hello bot</h1>'
+    if request.method == 'POST':
+        r = request.get_json()
+        chat_id = r['message']['chat']['id']
+        message = r['message']['text']
+        
+        if '/start' in message:
+            send_message(chat_id, text='Welcome to laboratory work nr.5')
+        
+        write_json(r)
+        return jsonify(r)
+    return '<h1>hello</h1>'
 
 
 URL = 'https://api.telegram.org/bot6162398123:AAHj_kQmW57PLhPCfzctfnhfrYabAko3kL4/'
+
+# https://api.telegram.org/bot6162398123:AAHj_kQmW57PLhPCfzctfnhfrYabAko3kL4/setWebhook?url=https://f46e-95-65-58-58.ngrok-free.app/
 
 def write_json(data, filename='answer.json'):
     with open(filename, 'w') as f:
@@ -22,7 +36,7 @@ def get_updates():
     write_json(r.json())
     return r.json()
     
-def send_message(chat_id, text='bla-bla-bla'):
+def send_message(chat_id, text='default message'):
     url = URL + 'sendMessage'
     answer = {'chat_id': chat_id, 'text': text}
     r = requests.post(url, json=answer)
