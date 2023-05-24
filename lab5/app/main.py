@@ -4,6 +4,7 @@ from flask import request
 from dotenv import dotenv_values
 import json
 import requests
+import sqlite3
 
 
 app = Flask(__name__)
@@ -22,17 +23,21 @@ def index():
         r = request.get_json()
 
         if 'message' in r and 'text' in r['message']:
-            #write_json(r)
+            write_json(r)
 
             chat_id = r['message']['chat']['id']
             message = r['message']['text']
 
-            if '/start' in message:
+            if message == '/start':
                 start(chat_id)
-
             elif message.startswith('/latest_news'):
                 topic = ' '.join(message.split('/latest_news ')[1:]).strip()
-                latest_news(chat_id, topic)
+                latest_news(chat_id, topic)  
+            elif message.startswith('/save_news'):
+                news = ' '.join(message.split('/save_news ')[1:]).strip()
+                save_news("news.db", chat_id, news)     
+            elif message == '/saved_news':
+                saved_news("news.db", chat_id)          
             else:
                 command_not_found(chat_id)
 
@@ -42,12 +47,12 @@ def index():
 
 def start(chat_id):
     bot_url = URL + 'sendMessage'
-    answer = {'chat_id': chat_id, 'text': 'Welcome! This is laboratory work Nr.5 of the Web Programming university course.\n\nAvailable commands:\n/start\n/latest_news\n/latest_news <your_topic>'}
+    answer = {'chat_id': chat_id, 'text': 'Welcome! This is laboratory work Nr.5 of the Web Programming university course.\n\nAvailable commands:\n/start\n/latest_news\n/latest_news <your_topic>\n/save_news <your_URL>\n/saved_news'}
     r = requests.post(bot_url, json=answer)
     return r.json()
 
 def latest_news(chat_id, topic):
-    if (is_not_empty(topic)):
+    if topic and is_not_empty(topic):
         api_endpoint = f'https://newsapi.org/v2/everything?q="{topic}"&apiKey={newsapi_token}'
         
         response = requests.get(api_endpoint)
@@ -74,6 +79,7 @@ def latest_news(chat_id, topic):
         answer = {'chat_id': chat_id, 'text': parsed_articles}
         r = requests.post(bot_url, json=answer)
         return r.json()
+    
     else: 
         api_endpoint = f'https://newsdata.io/api/1/news?apikey={newsdata_token}&language=en'
         
@@ -87,10 +93,12 @@ def latest_news(chat_id, topic):
         parsed_articles = f'Top latest 5 news \n\n'
 
         for article in articles:
+            article_description = get_half_string(article['description'])
+            
             parsed_article = (f"🔵 {article['title']}\n\n" \
-                            f"{article['description']}\n\n" \
+                            f"{article_description}\n\n" \
                             f"Read more: {article['link']}\n\n" \
-                            f"Source: {article['creator'][0]}\n\n\n" )
+                            f"Source: {article['source_id']}\n\n\n" )
             parsed_articles += parsed_article
             article_count += 1
                 
@@ -100,7 +108,76 @@ def latest_news(chat_id, topic):
         bot_url = URL + 'sendMessage'
         answer = {'chat_id': chat_id, 'text': parsed_articles}
         r = requests.post(bot_url, json=answer)
-        return r.json() 
+        return r.json()
+
+def create_user_table(database_name):
+    conn = sqlite3.connect(database_name)
+    cursor = conn.cursor()
+
+    cursor.execute("CREATE TABLE IF NOT EXISTS saved_news(id TEXT, url TEXT)")
+
+    conn.commit()
+    conn.close()
+
+def save_news(database_name, chat_id, url):
+    if url and is_not_empty(url):
+        create_user_table(database_name)
+        conn = sqlite3.connect(database_name)
+        cursor = conn.cursor()
+
+        cursor.execute('SELECT * FROM saved_news WHERE id = ?', (chat_id,))
+        existing_user = cursor.fetchone()
+
+        if existing_user:
+            urls = existing_user[1].split(', ')
+            if url not in urls:
+                new_urls = existing_user[1] + ', ' + url
+                cursor.execute('UPDATE saved_news SET url = ? WHERE id = ?', (new_urls, chat_id))        
+        else:
+            cursor.execute('INSERT INTO saved_news (id, url) VALUES (?, ?)', (chat_id, url))
+
+        conn.commit()
+        conn.close()
+
+        bot_url = URL + 'sendMessage'
+        answer = {'chat_id': chat_id, 'text': "News saved to the database"}
+        r = requests.post(bot_url, json=answer)
+        return r.json()
+    else:
+        bot_url = URL + 'sendMessage'
+        answer = {'chat_id': chat_id, 'text': "Please provide a URL"}
+        r = requests.post(bot_url, json=answer)
+        return r.json()
+
+def saved_news(database_name, chat_id):
+    create_user_table(database_name)
+    
+    conn = sqlite3.connect(database_name)
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT url FROM saved_news WHERE id = ?', (chat_id,))
+    urls = cursor.fetchone()
+    
+    conn.close()
+
+    if urls:
+        all_parsed_news = f'Saved URLs: \n\n'
+        
+        urls = urls[0].split(', ')
+
+        for url in urls:
+            parsed_news = f'🔵 {url} \n\n'
+            all_parsed_news += parsed_news
+            
+        bot_url = URL + 'sendMessage'
+        answer = {'chat_id': chat_id, 'text': all_parsed_news}
+        r = requests.post(bot_url, json=answer)
+        return r.json()
+    else:
+        bot_url = URL + 'sendMessage'
+        answer = {'chat_id': chat_id, 'text': 'No saved news'}
+        r = requests.post(bot_url, json=answer)
+        return r.json()
 
 def command_not_found(chat_id):
     bot_url = URL + 'sendMessage'
@@ -110,6 +187,11 @@ def command_not_found(chat_id):
     
 def is_not_empty(string):
     return len(string.strip()) != 0
+
+def get_half_string(string):
+    half_length = len(string) // 2
+    half = string[:half_length] + "..."
+    return half
 
 def write_json(data, filename='answer.json'):
     with open(filename, 'w') as f:

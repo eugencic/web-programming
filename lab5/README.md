@@ -1,9 +1,20 @@
 # Lab 5 - Backend development
 
-## Important
+## Installation
 
-- Before using the bot, create a tunnel using Ngrok.
-- Set a webhook by accessing the link https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?url=<NGROK_URL>
+- Create a tunnel using Ngrok.
+
+```bash
+ ./ngrok http 5000
+```
+
+- Add the necessary the variables in this link https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?url=<NGROK_URL>
+
+- Set a webhook by accessing the link.
+
+- Start the application.
+
+- Start the bot.
 
 ## Story
 
