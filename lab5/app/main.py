@@ -62,7 +62,7 @@ def latest_news(chat_id, topic):
         articles = data['articles']
         article_count = 0
         
-        parsed_articles = f'Top latest 5 news on topic "{topic}" \n\n'
+        parsed_articles = f'Top 5 latest news on topic "{topic}" \n\n'
 
         for article in articles:
             parsed_article = (f"🔵 {article['title']}\n\n" \
@@ -90,7 +90,7 @@ def latest_news(chat_id, topic):
         articles = data['results']
         article_count = 0
         
-        parsed_articles = f'Top latest 5 news \n\n'
+        parsed_articles = f'Top 5 latest news \n\n'
 
         for article in articles:
             article_description = get_half_string(article['description'])

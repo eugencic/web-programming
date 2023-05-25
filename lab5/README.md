@@ -2,19 +2,15 @@
 
 ## Installation
 
-- Create a tunnel using Ngrok.
+- Start the application
 
-```bash
- ./ngrok http 5000
-```
+- Create a tunnel using Ngrok, by executing `./ngrok http 5000`
 
-- Add the necessary the variables in this link https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?url=<NGROK_URL>
+- Add the necessary variables in this link `https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?url=<NGROK_URL>`
 
-- Set a webhook by accessing the link.
+- Set a webhook by accessing the created link
 
-- Start the application.
-
-- Start the bot.
+- Start the Telegram bot
 
 ## Story
 

@@ -1,0 +1,28 @@
+{
+  "update_id": 325636493,
+  "message": {
+    "message_id": 516,
+    "from": {
+      "id": 441513607,
+      "is_bot": false,
+      "first_name": "Eugeniu Popa",
+      "username": "eugencic",
+      "language_code": "en"
+    },
+    "chat": {
+      "id": 441513607,
+      "first_name": "Eugeniu Popa",
+      "username": "eugencic",
+      "type": "private"
+    },
+    "date": 1685005427,
+    "text": "/saved_news",
+    "entities": [
+      {
+        "offset": 0,
+        "length": 11,
+        "type": "bot_command"
+      }
+    ]
+  }
+}
